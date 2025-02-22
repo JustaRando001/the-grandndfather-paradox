@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgf5o67eo4gdv"
-path="res://.godot/imported/playerWalkCycle-Sheet.png-cbea9d865337f72def449d58ff898b9b.ctex"
+uid="uid://dijqy2upx6e5m"
+path="res://.godot/imported/foliage-Sheet.png-0cc502e4a2381380bda6342699659fac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://playerWalkCycle-Sheet.png"
-dest_files=["res://.godot/imported/playerWalkCycle-Sheet.png-cbea9d865337f72def449d58ff898b9b.ctex"]
+source_file="res://assets/foliage-Sheet.png"
+dest_files=["res://.godot/imported/foliage-Sheet.png-0cc502e4a2381380bda6342699659fac.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd0qoca24kml0"
-path="res://.godot/imported/monochrome_tilemap_packed.png-5f62e552b4336ed043868714c711b154.ctex"
+uid="uid://dvfk0grbdeusu"
+path="res://.godot/imported/TreeSapling.png-b0f35de9c311b048dd9dd3f24d8074f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://monochrome_tilemap_packed.png"
-dest_files=["res://.godot/imported/monochrome_tilemap_packed.png-5f62e552b4336ed043868714c711b154.ctex"]
+source_file="res://assets/TreeSapling.png"
+dest_files=["res://.godot/imported/TreeSapling.png-b0f35de9c311b048dd9dd3f24d8074f6.ctex"]
 
 [params]
 

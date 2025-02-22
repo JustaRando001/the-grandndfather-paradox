@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://b8tserddycbbx"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_mscni"]
-[ext_resource type="Texture2D" uid="uid://cgf5o67eo4gdv" path="res://playerWalkCycle-Sheet.png" id="2_k3v08"]
-[ext_resource type="Texture2D" uid="uid://6q3543yalxw" path="res://playerIdleCycle-Sheet.png" id="2_t1skx"]
+[ext_resource type="Texture2D" uid="uid://cgf5o67eo4gdv" path="res://assets/playerWalkCycle-Sheet.png" id="2_k3v08"]
+[ext_resource type="Texture2D" uid="uid://6q3543yalxw" path="res://assets/playerIdleCycle-Sheet.png" id="2_t1skx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_frxvh"]
 size = Vector2(16, 16)

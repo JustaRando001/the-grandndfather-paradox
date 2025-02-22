@@ -1,10 +1,147 @@
-[gd_scene load_steps=3 format=3 uid="uid://dy77wtqkwt4j6"]
+[gd_scene load_steps=14 format=3 uid="uid://dy77wtqkwt4j6"]
 
 [ext_resource type="PackedScene" uid="uid://b5k70a1v3x8yx" path="res://world.tscn" id="1_ch15j"]
+[ext_resource type="Script" path="res://game.gd" id="1_smr0i"]
 [ext_resource type="PackedScene" uid="uid://b8tserddycbbx" path="res://player.tscn" id="2_n1ypb"]
 
-[node name="Game" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hubcu"]
+bg_color = Color(0.577008, 0.577008, 0.577008, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
-[node name="Level1" parent="." instance=ExtResource("1_ch15j")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmc1r"]
+bg_color = Color(0.329158, 0.329158, 0.329159, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
-[node name="Player" parent="." instance=ExtResource("2_n1ypb")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8r5bo"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2v5m"]
+bg_color = Color(0.577008, 0.577008, 0.577008, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s8gdh"]
+bg_color = Color(0.329158, 0.329158, 0.329159, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glcd3"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8f2j0"]
+bg_color = Color(0.577008, 0.577008, 0.577008, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svvgp"]
+bg_color = Color(0.329158, 0.329158, 0.329159, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21c64"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="LabelSettings" id="LabelSettings_jm3ft"]
+font_size = 8
+shadow_size = 0
+
+[node name="Game" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_smr0i")
+
+[node name="handle" type="Node2D" parent="."]
+process_mode = 1
+
+[node name="World" parent="handle" instance=ExtResource("1_ch15j")]
+
+[node name="Player" parent="handle" instance=ExtResource("2_n1ypb")]
+position = Vector2(8, 72)
+
+[node name="PauseMenu" type="VBoxContainer" parent="handle/Player"]
+process_mode = 2
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeButton" type="Button" parent="handle/Player/PauseMenu"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_hubcu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wmc1r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8r5bo")
+text = "Resume"
+
+[node name="SettingsButton" type="Button" parent="handle/Player/PauseMenu"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_a2v5m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s8gdh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_glcd3")
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="handle/Player/PauseMenu"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_8f2j0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_svvgp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_21c64")
+text = "Quit"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.435192, 0.435192, 0.435192, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 432.0
+offset_right = 593.0
+offset_bottom = 23.0
+text = "The player travles to the past to push the rock in front of
+the tree sapling preventing the tree from growing and
+blocking the path."
+label_settings = SubResource("LabelSettings_jm3ft")
+
+[connection signal="pressed" from="handle/Player/PauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="handle/Player/PauseMenu/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="handle/Player/PauseMenu/QuitButton" to="." method="_on_quit_button_pressed"]

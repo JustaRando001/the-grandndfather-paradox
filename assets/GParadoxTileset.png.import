@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6q3543yalxw"
-path="res://.godot/imported/playerIdleCycle-Sheet.png-fc9c67de2f789834d1ae41f8a2bf944d.ctex"
+uid="uid://bgf4205qopsch"
+path="res://.godot/imported/GParadoxTileset.png-3794143ecee8c8acfab9d41ca470c960.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://playerIdleCycle-Sheet.png"
-dest_files=["res://.godot/imported/playerIdleCycle-Sheet.png-fc9c67de2f789834d1ae41f8a2bf944d.ctex"]
+source_file="res://assets/GParadoxTileset.png"
+dest_files=["res://.godot/imported/GParadoxTileset.png-3794143ecee8c8acfab9d41ca470c960.ctex"]
 
 [params]
 
