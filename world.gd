@@ -27,12 +27,11 @@ func toggle_time_state():
 		switch_to_past()
 
 func switch_to_present():
-	present.enabled = true
 	present.visible = true
 	present.propagate_call("set", ["disabled", false])
 	
 	# If the player solved the puzzle by placing the rock on the sapling
-	if $PastLayer/Sapling.overlaps_body($ConstantObjects/BigRock):
+	if $PastLayer/Sapling.overlaps_body($ConstantLayer/BigRock):
 		# Show collapsed pillar instead of supported pillar
 		$PresentLayer/CollapsedOrSupportedPillar/CollapsedOrSupportedPillar.texture = collapsedPillarTex
 		$PresentLayer/CollapsedOrSupportedPillar/CollapsedOrSupportedPillarArea.shape = collapsedPillarArea
@@ -48,14 +47,12 @@ func switch_to_present():
 		$PresentLayer/BigTree.visible = true
 		$PresentLayer/BigTree/CollisionShape2D.disabled = false
 	
-	past.enabled = false
 	past.visible = false
 	past.propagate_call("set", ["disabled", true])
 	
 func switch_to_past():
-	past.enabled = true
 	past.visible = true
 	past.propagate_call("set", ["disabled", false])
-	present.enabled = false
+	
 	present.visible = false
 	present.propagate_call("set", ["disabled", true])
