@@ -5,6 +5,8 @@ const JUMP_VELOCITY = -250.0
 @export_range(0.0, 1.0) var friction = 0.1
 @export_range(0.0 , 1.0) var acceleration = 0.25
 
+@export_range(0.0 , 100.0) var push_force = 20
+
 @onready var _animated_sprite = $AnimatedSprite2D
 
 func _process(delta):
@@ -32,4 +34,9 @@ func _physics_process(delta):
 		velocity.x = lerp(velocity.x, 0.0, friction)
 
 	move_and_slide()
+
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 	
