@@ -1,19 +1,27 @@
-[gd_scene load_steps=9 format=4 uid="uid://b5k70a1v3x8yx"]
+[gd_scene load_steps=15 format=4 uid="uid://b5k70a1v3x8yx"]
 
 [ext_resource type="TileSet" uid="uid://bxro5n2ji1ywv" path="res://level_tileset.tres" id="1_j7dgr"]
 [ext_resource type="Script" path="res://world.gd" id="1_pa656"]
 [ext_resource type="Texture2D" uid="uid://cktnjltbavxrj" path="res://assets/BigTree.png" id="2_0mh08"]
 [ext_resource type="Texture2D" uid="uid://mt7hunfss6qw" path="res://assets/BigRock.png" id="3_3iat3"]
+[ext_resource type="Texture2D" uid="uid://des7xu8uhhgk" path="res://assets/collapsingPillar.png" id="4_5siam"]
+[ext_resource type="Texture2D" uid="uid://bl54xudduo42" path="res://assets/collapsedPillar.png" id="4_t3a74"]
+[ext_resource type="Texture2D" uid="uid://c5u10peam2jq0" path="res://assets/supportedPillar.png" id="4_xfwjo"]
 [ext_resource type="Texture2D" uid="uid://dvfk0grbdeusu" path="res://assets/TreeSapling.png" id="5_babhm"]
+[ext_resource type="Shape2D" uid="uid://dj85iqiammy7t" path="res://shapes/supportedPillarShape.tres" id="5_pbnel"]
+[ext_resource type="Shape2D" uid="uid://bbqe0jdq4bdpe" path="res://shapes/collapsedPillarShape.tres" id="7_q1s2q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52v4y"]
-size = Vector2(16, 48)
+size = Vector2(15, 48)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_888oo"]
-size = Vector2(16, 26)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1727"]
+size = Vector2(15, 41)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kq5u6"]
 size = Vector2(24, 20)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mjoa8"]
+height = 27.0
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_pa656")
@@ -23,7 +31,7 @@ tile_map_data = PackedByteArray("AAD///7/AQAFAAEAAAD/////AQAFAAEAAAD//wAAAQAFAAE
 tile_set = ExtResource("1_j7dgr")
 
 [node name="BigTree" type="StaticBody2D" parent="PresentLayer"]
-position = Vector2(608, 56)
+position = Vector2(727, 56)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PresentLayer/BigTree"]
@@ -32,16 +40,39 @@ texture = ExtResource("2_0mh08")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PresentLayer/BigTree"]
 shape = SubResource("RectangleShape2D_52v4y")
 
-[node name="BigRock" type="StaticBody2D" parent="PresentLayer"]
-position = Vector2(472, 64)
+[node name="CollapsedOrSupportedPillar" type="StaticBody2D" parent="PresentLayer"]
+position = Vector2(742, 56)
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="PresentLayer/BigRock"]
-texture = ExtResource("3_3iat3")
+[node name="CollapsedOrSupportedPillar" type="Sprite2D" parent="PresentLayer/CollapsedOrSupportedPillar"]
+position = Vector2(0, 4)
+texture = ExtResource("4_xfwjo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PresentLayer/BigRock"]
-position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_888oo")
+[node name="CollapsedOrSupportedPillarArea" type="CollisionShape2D" parent="PresentLayer/CollapsedOrSupportedPillar"]
+position = Vector2(-0.5, 3.5)
+shape = ExtResource("5_pbnel")
+
+[node name="BigTree2" type="StaticBody2D" parent="PresentLayer"]
+position = Vector2(411, 56)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PresentLayer/BigTree2"]
+texture = ExtResource("2_0mh08")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PresentLayer/BigTree2"]
+shape = SubResource("RectangleShape2D_52v4y")
+
+[node name="CollapsedPillar2" type="StaticBody2D" parent="PresentLayer"]
+position = Vector2(488, 56)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PresentLayer/CollapsedPillar2"]
+position = Vector2(0, 13)
+texture = ExtResource("4_t3a74")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PresentLayer/CollapsedPillar2"]
+position = Vector2(-0.5, 13.5)
+shape = ExtResource("7_q1s2q")
 
 [node name="PastLayer" type="TileMapLayer" parent="."]
 visible = false
@@ -49,24 +80,59 @@ tile_map_data = PackedByteArray("AAD///7/AQAFAAEAAAD/////AQAFAAEAAAD//wAAAQAFAAE
 enabled = false
 tile_set = ExtResource("1_j7dgr")
 
-[node name="Area2D" type="Area2D" parent="PastLayer"]
-position = Vector2(608, 72)
+[node name="CollapsingPillar" type="StaticBody2D" parent="PastLayer"]
+position = Vector2(742, 56)
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="PastLayer/Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="PastLayer/CollapsingPillar"]
+texture = ExtResource("4_5siam")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PastLayer/CollapsingPillar"]
+position = Vector2(-0.5, 3.5)
+shape = SubResource("RectangleShape2D_u1727")
+
+[node name="CollapsingPillar2" type="StaticBody2D" parent="PastLayer"]
+position = Vector2(488, 56)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PastLayer/CollapsingPillar2"]
+texture = ExtResource("4_5siam")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PastLayer/CollapsingPillar2"]
+position = Vector2(-0.5, 3.5)
+shape = SubResource("RectangleShape2D_u1727")
+
+[node name="Sapling" type="Area2D" parent="PastLayer"]
+position = Vector2(727, 72)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PastLayer/Sapling"]
 texture = ExtResource("5_babhm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PastLayer/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PastLayer/Sapling"]
 position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_kq5u6")
 
-[node name="BigRock" type="StaticBody2D" parent="PastLayer"]
-position = Vector2(472, 64)
+[node name="Sapling2" type="Area2D" parent="PastLayer"]
+position = Vector2(411, 72)
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="PastLayer/BigRock"]
+[node name="Sprite2D" type="Sprite2D" parent="PastLayer/Sapling2"]
+texture = ExtResource("5_babhm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PastLayer/Sapling2"]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_kq5u6")
+
+[node name="ConstantObjects" type="Node2D" parent="."]
+
+[node name="BigRock" type="RigidBody2D" parent="ConstantObjects"]
+position = Vector2(586, 64)
+lock_rotation = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ConstantObjects/BigRock"]
 texture = ExtResource("3_3iat3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PastLayer/BigRock"]
-position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_888oo")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ConstantObjects/BigRock"]
+position = Vector2(0, 2.5)
+shape = SubResource("CapsuleShape2D_mjoa8")
