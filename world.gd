@@ -36,7 +36,7 @@ func switch_to_present():
 		# Show collapsed pillar instead of supported pillar
 		$PresentLayer/CollapsedOrSupportedPillar/CollapsedOrSupportedPillar.texture = collapsedPillarTex
 		$PresentLayer/CollapsedOrSupportedPillar/CollapsedOrSupportedPillarArea.shape = collapsedPillarArea
-		$PresentLayer/CollapsedOrSupportedPillar.transform.origin = Vector2(742, 65)
+		$PresentLayer/CollapsedOrSupportedPillar.transform.origin = Vector2(742, 71)
 		# Do not show or collide with tree
 		$PresentLayer/BigTree.visible = false
 		$PresentLayer/BigTree/CollisionShape2D.disabled = true
@@ -44,7 +44,7 @@ func switch_to_present():
 		# If the player has not solved or unsolved the puzzle, undo everything
 		$PresentLayer/CollapsedOrSupportedPillar/CollapsedOrSupportedPillar.texture = supportedPillarTex
 		$PresentLayer/CollapsedOrSupportedPillar/CollapsedOrSupportedPillarArea.shape = supportedPillarArea
-		$PresentLayer/CollapsedOrSupportedPillar.transform.origin = Vector2(742, 56)
+		$PresentLayer/CollapsedOrSupportedPillar.transform.origin = Vector2(742, 60)
 		$PresentLayer/BigTree.visible = true
 		$PresentLayer/BigTree/CollisionShape2D.disabled = false
 	
