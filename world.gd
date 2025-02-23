@@ -36,7 +36,7 @@ func switch_to_present():
 		# Show collapsed pillar instead of supported pillar
 		$PresentLayer/CollapsedOrSupportedPillar/CollapsedOrSupportedPillar.texture = collapsedPillarTex
 		$PresentLayer/CollapsedOrSupportedPillar/CollapsedOrSupportedPillarArea.shape = collapsedPillarArea
-		$PresentLayer/CollapsedOrSupportedPillar.transform.origin = Vector2(742, 71)
+		$PresentLayer/CollapsedOrSupportedPillar.transform.origin = Vector2(742, 69)
 		# Do not show or collide with tree
 		$PresentLayer/BigTree.visible = false
 		$PresentLayer/BigTree/CollisionShape2D.disabled = true
