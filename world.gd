@@ -1,7 +1,5 @@
 extends Node2D
 
-enum TimeState {PAST, PRESENT}
-
 @onready var past = $PastLayer
 @onready var present = $PresentLayer
 
@@ -14,6 +12,8 @@ enum TimeState {PAST, PRESENT}
 
 var current_time_state = TimeState.PAST
 
+signal time_state_toggled(current_time_state : TimeState)
+
 func _input(event):
 	if event.is_action_pressed("time_swap"):
 		toggle_time_state()
@@ -25,6 +25,7 @@ func toggle_time_state():
 	else:
 		current_time_state = TimeState.PAST
 		switch_to_past()
+	time_state_toggled.emit(current_time_state)
 
 func switch_to_present():
 	present.visible = true

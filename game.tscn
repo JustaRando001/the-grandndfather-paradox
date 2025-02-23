@@ -87,7 +87,7 @@ process_mode = 1
 [node name="World" parent="handle" instance=ExtResource("1_ch15j")]
 
 [node name="Player" parent="handle" instance=ExtResource("2_n1ypb")]
-position = Vector2(32, 72)
+position = Vector2(32, 385.51)
 
 [node name="PauseMenu" type="VBoxContainer" parent="handle/Player"]
 process_mode = 2

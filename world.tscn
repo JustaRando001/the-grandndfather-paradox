@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://b5k70a1v3x8yx"]
+[gd_scene load_steps=27 format=4 uid="uid://b5k70a1v3x8yx"]
 
 [ext_resource type="TileSet" uid="uid://bxro5n2ji1ywv" path="res://level_tileset.tres" id="1_j7dgr"]
 [ext_resource type="Script" path="res://world.gd" id="1_pa656"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c87cvxau7ggq" path="res://assets/FloatingPlatform.png" id="6_k502n"]
 [ext_resource type="Texture2D" uid="uid://des7xu8uhhgk" path="res://assets/collapsingPillar.png" id="7_7jglu"]
 [ext_resource type="Shape2D" uid="uid://dj85iqiammy7t" path="res://shapes/supportedPillarShape.tres" id="7_kwm1g"]
+[ext_resource type="Script" path="res://past_layer.gd" id="8_4yyh2"]
 [ext_resource type="Texture2D" uid="uid://c5u10peam2jq0" path="res://assets/supportedPillar.png" id="8_mvxky"]
 [ext_resource type="Texture2D" uid="uid://c3qacjx2f0csl" path="res://assets/key.png" id="8_wxlqy"]
 [ext_resource type="Texture2D" uid="uid://rain10i1fs7n" path="res://assets/Canon.png" id="9_hpdua"]
@@ -52,6 +53,7 @@ size = Vector2(16, 32)
 script = ExtResource("1_pa656")
 
 [node name="PresentLayer" type="Node2D" parent="."]
+visible = false
 
 [node name="BigTree" type="StaticBody2D" parent="PresentLayer"]
 position = Vector2(728, 56)
@@ -112,7 +114,8 @@ shape = ExtResource("7_kwm1g")
 texture = ExtResource("8_mvxky")
 
 [node name="PastLayer" type="Node2D" parent="."]
-visible = false
+script = ExtResource("8_4yyh2")
+platform_speed = 20.0
 
 [node name="Sapling" type="Area2D" parent="PastLayer"]
 position = Vector2(727, 72)
@@ -244,3 +247,5 @@ texture = ExtResource("10_saxn4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ConstantLayer/AreaPortal2D"]
 shape = SubResource("RectangleShape2D_tailh")
+
+[connection signal="time_state_toggled" from="." to="PastLayer" method="_on_world_time_state_toggled"]
